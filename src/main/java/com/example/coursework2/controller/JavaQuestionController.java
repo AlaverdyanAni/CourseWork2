@@ -40,6 +40,10 @@ public class JavaQuestionController {
         questions = questionService.getAll();
         return questions;
     }
+    @ExceptionHandler(QuestionsAlreadyExistException.class)
+    public ResponseEntity<String> handleQuestionAlreadyExistException(QuestionsAlreadyExistException e){
+        return ResponseEntity.badRequest().body("Такой вопрос уже есть!");
+    }
 
     @ExceptionHandler(value = {
             QuestionsAlreadyExistException.class,

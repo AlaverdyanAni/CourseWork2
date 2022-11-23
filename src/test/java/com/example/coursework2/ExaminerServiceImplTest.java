@@ -1,7 +1,9 @@
 package com.example.coursework2;
 
+import com.example.coursework2.Service.ExaminerService;
 import com.example.coursework2.Service.Impl.ExaminerServiceImpl;
 import com.example.coursework2.Service.Impl.JavaQuestionService;
+import com.example.coursework2.exception.QuestionNotFoundException;
 import com.example.coursework2.exception.QuestionsLimitException;
 import com.example.coursework2.model.Question;
 import org.apache.catalina.LifecycleState;
@@ -17,8 +19,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -58,7 +60,7 @@ public class ExaminerServiceImplTest {
         );
         assertThat(examinerService.getQuestions(3))
                 .hasSize(3)
-                .containsExactlyInOrder(
+                .containsExactlyInAnyOrder(
                         new Question("Вопрос1", "Ответ1"),
                         new Question("Вопрос2", "Ответ2"),
                         new Question("Вопрос3", "Ответ3")

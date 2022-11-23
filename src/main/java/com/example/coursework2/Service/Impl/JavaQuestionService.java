@@ -33,7 +33,7 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
         public Question remove(Question question) {
-        if(!questions.contains(question)){
+        if(!questions.remove(question)){
             throw new QuestionNotFoundException();
         }
         return question;
