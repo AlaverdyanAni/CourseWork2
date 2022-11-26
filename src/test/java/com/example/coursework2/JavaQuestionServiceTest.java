@@ -10,12 +10,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 public class JavaQuestionServiceTest {
@@ -38,7 +37,7 @@ public class JavaQuestionServiceTest {
 
         assertThatExceptionOfType(QuestionsAlreadyExistException.class)
                 .isThrownBy(()->javaQuestionService.add(question,answer));
-        assertThat(javaQuestionService.getAll()).contoinsExactlyInAnyOrder(q);
+        assertThat(javaQuestionService.getAll()).containsExactlyInAnyOrder(q);
     }
 
    @Test

@@ -1,26 +1,21 @@
 package com.example.coursework2;
 
-import com.example.coursework2.Service.ExaminerService;
 import com.example.coursework2.Service.Impl.ExaminerServiceImpl;
 import com.example.coursework2.Service.Impl.JavaQuestionService;
-import com.example.coursework2.exception.QuestionNotFoundException;
 import com.example.coursework2.exception.QuestionsLimitException;
 import com.example.coursework2.model.Question;
-import org.apache.catalina.LifecycleState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
